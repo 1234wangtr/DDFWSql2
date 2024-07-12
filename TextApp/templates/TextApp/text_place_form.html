@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create TextPlace</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Create TextPlace</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+        <script>
+        $(document).ready(function() {
+            function updateSelect(url, elementToUpdate) {
+                $.ajax({
+                    url: url,
+                    success: function(data) {
+                        elementToUpdate.empty();
+                        elementToUpdate.append('<option value="">---------</option>');
+                        $.each(data, function(key, value) {
+                            elementToUpdate.append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    }
+                });
+            }
+
+            function clearSelect(elementsToClear) {
+                $.each(elementsToClear, function(index, element) {
+                    element.empty().append('<option value="">---------</option>');
+                });
+            }
+
+            $('.place_location_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_location_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.place_location_level2'));
+                } else {
+                    clearSelect([$('.place_location_level2'), $('.place_location_level3')]);
+                }
+                clearSelect([$('.place_location_level3')]);
+            });
+
+            $('.place_location_level2').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_location_level3/' + selectedValue + '/';
+                    updateSelect(url, $('.place_location_level3'));
+                } else {
+                    clearSelect([$('.place_location_level3')]);
+                }
+            });
+
+            $('.place_natural_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_natural_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.place_natural_level2'));
+                } else {
+                    clearSelect([$('.place_natural_level2'), $('.place_natural_level3')]);
+                }
+                clearSelect([$('.place_natural_level3')]);
+            });
+
+            $('.place_natural_level2').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_natural_level3/' + selectedValue + '/';
+                    updateSelect(url, $('.place_natural_level3'));
+                } else {
+                    clearSelect([$('.place_natural_level3')]);
+                }
+            });
+
+            $('.place_humanistic_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_humanistic_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.place_humanistic_level2'));
+                } else {
+                    clearSelect([$('.place_humanistic_level2'), $('.place_humanistic_level3')]);
+                }
+                clearSelect([$('.place_humanistic_level3')]);
+            });
+
+            $('.place_humanistic_level2').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_humanistic_level3/' + selectedValue + '/';
+                    updateSelect(url, $('.place_humanistic_level3'));
+                } else {
+                    clearSelect([$('.place_humanistic_level3')]);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
