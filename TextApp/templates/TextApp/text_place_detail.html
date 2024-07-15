@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Text Place Detail</title>
-</head>
-<body>
-    <h1>Text Place Detail</h1>
-    <p>Keywords: {{ item.keywords }}</p>
-    <p>Information Source: {{ item.information_source }}</p>
-    <p>Information Address: <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
-    <p>Place Location Level 1: {{ item.place_location_level1 }}</p>
-    <p>Place Location Level 2: {{ item.place_location_level2 }}</p>
-    <p>Place Location Level 3: {{ item.place_location_level3 }}</p>
-    <p>Place Natural Level 1: {{ item.place_natural_level1 }}</p>
-    <p>Place Natural Level 2: {{ item.place_natural_level2 }}</p>
-    <p>Place Natural Level 3: {{ item.place_natural_level3 }}</p>
-    <p>Place Humanistic Level 1: {{ item.place_humanistic_level1 }}</p>
-    <p>Place Humanistic Level 2: {{ item.place_humanistic_level2 }}</p>
-    <p>Place Humanistic Level 3: {{ item.place_humanistic_level3 }}</p>
-    <a href="{% url 'text_home' %}">Back to Home</a>
-</body>
-</html>
+{% extends 'textapp/base.html' %}
+
+{% block title %}TextPlace Detail{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">TextPlace Detail</h1>
+    <p><strong>Keywords:</strong> {{ item.keywords }}</p>
+    <p><strong>Information Source:</strong> {{ item.information_source }}</p>
+    <p><strong>Information Address:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p><strong>Copyright Owner:</strong> {{ item.copyright_owner }}</p>
+    
+    <!-- Display multi-level list details -->
+    <p><strong>Place Location Level 1:</strong> {{ item.place_location_level1.name }}</p>
+    <p><strong>Place Location Level 2:</strong> {{ item.place_location_level2.name }}</p>
+    <p><strong>Place Location Level 3:</strong> {{ item.place_location_level3.name }}</p>
+    
+    <p><strong>Place Natural Level 1:</strong> {{ item.place_natural_level1.name }}</p>
+    <p><strong>Place Natural Level 2:</strong> {{ item.place_natural_level2.name }}</p>
+    <p><strong>Place Natural Level 3:</strong> {{ item.place_natural_level3.name }}</p>
+    
+    <p><strong>Place Humanistic Level 1:</strong> {{ item.place_humanistic_level1.name }}</p>
+    <p><strong>Place Humanistic Level 2:</strong> {{ item.place_humanistic_level2.name }}</p>
+    <p><strong>Place Humanistic Level 3:</strong> {{ item.place_humanistic_level3.name }}</p>
+
+    <a href="{% url 'text_home' %}" class="btn btn-secondary mt-4">Back to Home</a>
+{% endblock %}

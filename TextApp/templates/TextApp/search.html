@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>搜索结果</title>
-</head>
-<body>
-    <h1>"{{ query }}"的搜索结果</h1>
+{% extends 'textapp/base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
     <form method="GET" action="{% url 'search_text' %}">
         {{ form.as_p }}
-        <button type="submit">搜索</button>
+        <button type="submit" class="btn btn-primary">搜索</button>
     </form>
-
+    
     {% if results %}
-        <ul>
+        <ul class="list-group mt-4">
             {% for result in results %}
                 {% if result.type == 'TextPlace' %}
-                    <li><a href="{% url 'text_place_detail' result.data.id %}">TextPlace: {{ result.data.keywords }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'text_place_detail' result.data.id %}">TextPlace: {{ result.data.keywords }}</a></li>
                 {% elif result.type == 'TextCultural' %}
-                    <li><a href="{% url 'text_cultural_detail' result.data.id %}">TextCultural: {{ result.data.keywords }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'text_cultural_detail' result.data.id %}">TextCultural: {{ result.data.keywords }}</a></li>
                 {% elif result.type == 'TextHumanistic' %}
-                    <li><a href="{% url 'text_humanistic_detail' result.data.id %}">TextHumanistic: {{ result.data.keywords }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'text_humanistic_detail' result.data.id %}">TextHumanistic: {{ result.data.keywords }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>
     {% else %}
-        <p>没有找到搜索结果</p>
+        <p class="mt-4">没有找到搜索结果</p>
     {% endif %}
-
-    <a href="{% url 'text_home' %}">返回主页</a>
-</body>
-</html>
+{% endblock %}

@@ -6,7 +6,7 @@ class TextPlaceForm(forms.ModelForm):
     class Meta:
         model = TextPlace
         fields = [
-            'keywords', 'information_source', 'information_address',
+            'keywords', 'information_source', 'information_address', 'copyright_owner',
             'place_location_level1', 'place_location_level2', 'place_location_level3',
             'place_natural_level1', 'place_natural_level2', 'place_natural_level3',
             'place_humanistic_level1', 'place_humanistic_level2', 'place_humanistic_level3'
@@ -80,7 +80,7 @@ class TextCulturalForm(forms.ModelForm):
     class Meta:
         model = TextCultural
         fields = [
-            'keywords', 'information_source', 'information_address',
+            'keywords', 'information_source', 'information_address', 'copyright_owner',
             'cultural_agri_product_level1', 'cultural_agri_product_level2',
             'cultural_delicacies_level1', 'cultural_delicacies_level2',
             'cultural_processed_product_level1', 'cultural_processed_product_level2'
@@ -138,7 +138,7 @@ class TextHumanisticForm(forms.ModelForm):
     class Meta:
         model = TextHumanistic
         fields = [
-            'keywords', 'information_source', 'information_address',
+            'keywords', 'information_source', 'information_address', 'copyright_owner',
             'humanistic_category_level1', 'humanistic_category_level2',
             'humanistic_heritage_level1', 'humanistic_heritage_level2',
             'humanistic_topic_level1', 'humanistic_topic_level2'

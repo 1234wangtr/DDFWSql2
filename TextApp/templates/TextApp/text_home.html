@@ -1,13 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>TextApp Home</title>
-</head>
-<body>
-    <h1>Welcome to TextApp Home</h1>
-    <a href="{% url 'text_place_create' %}">Create TextPlace</a><br>
-    <a href="{% url 'text_cultural_create' %}">Create TextCultural</a><br>
-    <a href="{% url 'text_humanistic_create' %}">Create TextHumanistic</a><br>
-    <a href="{% url 'search_text' %}">Search</a><br>
-</body>
-</html>
+{% extends 'textapp/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Welcome to DDFWSql2</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add TextPlace</h5>
+                    <p class="card-text">Add a new TextPlace record to the database.</p>
+                    <a href="{% url 'text_place_create' %}" class="btn btn-primary">Add TextPlace</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add TextCultural</h5>
+                    <p class="card-text">Add a new TextCultural record to the database.</p>
+                    <a href="{% url 'text_cultural_create' %}" class="btn btn-primary">Add TextCultural</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add TextHumanistic</h5>
+                    <p class="card-text">Add a new TextHumanistic record to the database.</p>
+                    <a href="{% url 'text_humanistic_create' %}" class="btn btn-primary">Add TextHumanistic</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Search Records</h5>
+                    <p class="card-text">Search for records in the database.</p>
+                    <a href="{% url 'search_text' %}" class="btn btn-primary">Search</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

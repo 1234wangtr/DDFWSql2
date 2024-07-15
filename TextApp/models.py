@@ -13,10 +13,17 @@ SOURCE_CHOICES = [
 ]
 
 
+COPYRIGHT_CHOICES = [
+    ('自有', '自有'),
+    ('共有', '共有'),
+    ('他人', '他人'),
+]
+
 class TextPlace(models.Model):
     keywords = models.TextField(blank=True, null=True)
     information_source = models.CharField(max_length=20, choices=SOURCE_CHOICES, blank=True, null=True)
     information_address = models.TextField(blank=True, null=True)
+    copyright_owner = models.CharField(max_length=10, choices=COPYRIGHT_CHOICES, default='自有')
 
     place_location_level1 = models.ForeignKey(PlaceLocation, on_delete=models.CASCADE,
                                               related_name='text_places_location_level1', blank=True, null=True)
@@ -47,6 +54,7 @@ class TextCultural(models.Model):
     keywords = models.TextField(blank=True, null=True)
     information_source = models.CharField(max_length=20, choices=SOURCE_CHOICES, blank=True, null=True)
     information_address = models.TextField(blank=True, null=True)
+    copyright_owner = models.CharField(max_length=10, choices=COPYRIGHT_CHOICES, default='自有')
 
     cultural_agri_product_level1 = models.ForeignKey(CulturalAgriProduct, on_delete=models.CASCADE,
                                                      related_name='text_culturals_agri_product_level1', blank=True,
@@ -77,6 +85,7 @@ class TextHumanistic(models.Model):
     keywords = models.TextField(blank=True, null=True)
     information_source = models.CharField(max_length=20, choices=SOURCE_CHOICES, blank=True, null=True)
     information_address = models.TextField(blank=True, null=True)
+    copyright_owner = models.CharField(max_length=10, choices=COPYRIGHT_CHOICES, default='自有')
 
     humanistic_category_level1 = models.ForeignKey(HumanisticCategory, on_delete=models.CASCADE,
                                                    related_name='text_humanistics_category_level1', blank=True,
