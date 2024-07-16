@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create ImgCultural</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Create ImgCultural</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            function updateSelect(url, elementToUpdate) {
+                $.ajax({
+                    url: url,
+                    success: function(data) {
+                        elementToUpdate.empty();
+                        elementToUpdate.append('<option value="">---------</option>');
+                        $.each(data, function(key, value) {
+                            elementToUpdate.append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    }
+                });
+            }
+
+            function clearSelect(elementsToClear) {
+                $.each(elementsToClear, function(index, element) {
+                    element.empty().append('<option value="">---------</option>');
+                });
+            }
+
+            $('.cultural_agri_product_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_agri_product_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.cultural_agri_product_level2'));
+                } else {
+                    clearSelect([$('.cultural_agri_product_level2')]);
+                }
+            });
+
+            $('.cultural_delicacies_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_delicacies_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.cultural_delicacies_level2'));
+                } else {
+                    clearSelect([$('.cultural_delicacies_level2')]);
+                }
+            });
+
+            $('.cultural_processed_product_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_processed_product_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.cultural_processed_product_level2'));
+                } else {
+                    clearSelect([$('.cultural_processed_product_level2')]);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

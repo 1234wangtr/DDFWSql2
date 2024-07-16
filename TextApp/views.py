@@ -67,6 +67,7 @@ def search(request):
                 q_objects &= Q(
                     Q(keywords__icontains=keyword) |
                     Q(information_source__icontains=keyword) |
+                    Q(copyright_owner__icontains=keyword) |
                     Q(information_address__icontains=keyword)
                 )
 

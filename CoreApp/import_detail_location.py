@@ -43,20 +43,28 @@ def import_place_data_from_excel(file_path):
 
         if province and province != '':
             tmp_province = province
-            tmp_province = PlaceLocation.objects.get_or_create(name=province, parent=None)
+            tmp_province,dum = PlaceLocation.objects.get_or_create(name=province, parent=None)
 
         elif city and city != '':
             tmp_city = city
+            if city == '不统计':
+                city = '省直辖'
             tmp_city = PlaceLocation.objects.create(name=city,parent=tmp_province)
             print(f"City {city} in Province {tmp_province}")
 
         elif country and country != '':
             tmp_country = country
-            tmp_country = PlaceLocation.objects.get_or_create(name=country,parent=tmp_city)
+            tmp_country,dum = PlaceLocation.objects.get_or_create(name=country,parent=tmp_city)
             print(f"Country {country} in City {tmp_city}")
 
 def clear_all():
     PlaceLocation.objects.all().delete()
 
+def clear_butongji():
+    res = PlaceLocation.objects.filter(name='不统计').delete()
+    print(res)
+
 if __name__ == '__main__':
-    import_place_data_from_excel(path)
+    clear_butongji()
+    #clear_all()
+    #import_place_data_from_excel(path)

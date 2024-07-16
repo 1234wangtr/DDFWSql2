@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create ImgHumanistic</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Create ImgHumanistic</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            function updateSelect(url, elementToUpdate) {
+                $.ajax({
+                    url: url,
+                    success: function(data) {
+                        elementToUpdate.empty();
+                        elementToUpdate.append('<option value="">---------</option>');
+                        $.each(data, function(key, value) {
+                            elementToUpdate.append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    }
+                });
+            }
+
+            function clearSelect(elementsToClear) {
+                $.each(elementsToClear, function(index, element) {
+                    element.empty().append('<option value="">---------</option>');
+                });
+            }
+
+            $('.humanistic_category_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_humanistic_category_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.humanistic_category_level2'));
+                } else {
+                    clearSelect([$('.humanistic_category_level2')]);
+                }
+            });
+
+            $('.humanistic_heritage_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_humanistic_heritage_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.humanistic_heritage_level2'));
+                } else {
+                    clearSelect([$('.humanistic_heritage_level2')]);
+                }
+            });
+
+            $('.humanistic_topic_level1').change(function() {
+                var selectedValue = $(this).val();
+                if (selectedValue) {
+                    var url = '/core/get_humanistic_topic_level2/' + selectedValue + '/';
+                    updateSelect(url, $('.humanistic_topic_level2'));
+                } else {
+                    clearSelect([$('.humanistic_topic_level2')]);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

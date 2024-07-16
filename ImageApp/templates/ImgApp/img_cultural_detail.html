@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Img Cultural Detail</title>
+</head>
+<body>
+    <h1>Img Cultural Detail</h1>
+    <p>Keywords: {{ item.keywords }}</p>
+    <p>Information Source: {{ item.information_source }}</p>
+    <p>Copyright owner: {{ item.copyright_owner }}</p>
+    <p>Photographer: {{ item.photographer_name }}</p>
+    <p>Information Address: <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p>Cultural Agri Product Level 1: {{ item.cultural_agri_product_level1 }}</p>
+    <p>Cultural Agri Product Level 2: {{ item.cultural_agri_product_level2 }}</p>
+    <p>Cultural Delicacies Level 1: {{ item.cultural_delicacies_level1 }}</p>
+    <p>Cultural Delicacies Level 2: {{ item.cultural_delicacies_level2 }}</p>
+    <p>Cultural Processed Product Level 1: {{ item.cultural_processed_product_level1 }}</p>
+    <p>Cultural Processed Product Level 2: {{ item.cultural_processed_product_level2 }}</p>
+    <a href="{% url 'img_home' %}">Back to Home</a>
+</body>
+</html>

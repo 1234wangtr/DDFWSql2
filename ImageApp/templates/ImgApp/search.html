@@ -1,0 +1,45 @@
+{% extends 'imgapp/base.html' %}
+{% load static %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
+    <form method="GET" action="{% url 'search_img' %}">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">搜索</button>
+    </form>
+    
+    {% load static %}
+    {% if results %}
+        <ul class="list-group mt-4">
+            {% for result in results %}
+                {% if result.type == 'ImgPlace' %}
+                    <li class="list-group-item">
+                        <a href="{% url 'img_place_detail' result.data.id %}">
+                            <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
+                            ImgPlace: {{ result.data.keywords }}
+                        </a>
+                    </li>
+                {% elif result.type == 'ImgCultural' %}
+                    <li class="list-group-item">
+                        <a href="{% url 'img_cultural_detail' result.data.id %}">
+                            <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
+                            ImgCultural: {{ result.data.keywords }}
+                        </a>
+                    </li>
+                {% elif result.type == 'ImgHumanistic' %}
+                    <li class="list-group-item">
+                        <a href="{% url 'img_humanistic_detail' result.data.id %}">
+                            <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
+                            ImgHumanistic: {{ result.data.keywords }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="mt-4">没有找到搜索结果</p>
+    {% endif %}
+
+
+{% endblock %}

@@ -28,8 +28,14 @@ class TextPlaceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(TextPlaceForm, self).__init__(*args, **kwargs)
         self.fields['place_location_level1'].queryset = PlaceLocation.objects.filter(parent__isnull=True)
+        # self.fields['place_location_level2'].queryset = PlaceLocation.objects.none()
+        # self.fields['place_location_level3'].queryset = PlaceLocation.objects.none()
         self.fields['place_natural_level1'].queryset = PlaceNatural.objects.filter(parent__isnull=True)
+        # self.fields['place_natural_level2'].queryset = PlaceNatural.objects.none()
+        # self.fields['place_natural_level3'].queryset = PlaceNatural.objects.none()
         self.fields['place_humanistic_level1'].queryset = PlaceHumanistic.objects.filter(parent__isnull=True)
+        # self.fields['place_humanistic_level2'].queryset = PlaceHumanistic.objects.none()
+        # self.fields['place_humanistic_level3'].queryset = PlaceHumanistic.objects.none()
 
     # clean似乎没用
     def clean(self):
@@ -98,8 +104,11 @@ class TextCulturalForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(TextCulturalForm, self).__init__(*args, **kwargs)
         self.fields['cultural_agri_product_level1'].queryset = CulturalAgriProduct.objects.filter(parent__isnull=True)
+        # self.fields['cultural_agri_product_level2'].queryset = CulturalAgriProduct.objects.none()
         self.fields['cultural_delicacies_level1'].queryset = CulturalDelicacies.objects.filter(parent__isnull=True)
+        # self.fields['cultural_delicacies_level2'].queryset = CulturalDelicacies.objects.none()
         self.fields['cultural_processed_product_level1'].queryset = CulturalProcessedProduct.objects.filter(parent__isnull=True)
+        # self.fields['cultural_processed_product_level2'].queryset = CulturalProcessedProduct.objects.none()
 
     # clean似乎没用
     def clean(self):
@@ -157,6 +166,10 @@ class TextHumanisticForm(forms.ModelForm):
         self.fields['humanistic_category_level1'].queryset = HumanisticCategory.objects.filter(parent__isnull=True)
         self.fields['humanistic_heritage_level1'].queryset = HumanisticHeritage.objects.filter(parent__isnull=True)
         self.fields['humanistic_topic_level1'].queryset = HumanisticTopic.objects.filter(parent__isnull=True)
+
+        # self.fields['humanistic_category_level2'].queryset = HumanisticCategory.objects.none()
+        # self.fields['humanistic_heritage_level2'].queryset = HumanisticHeritage.objects.none()
+        # self.fields['humanistic_topic_level2'].queryset = HumanisticTopic.objects.none()
 
 
 # 搜索
