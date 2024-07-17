@@ -81,7 +81,8 @@ def search(request):
                                     Q(keywords__icontains=keyword) |
                                     Q(information_source__icontains=keyword) |
                                     Q(copyright_owner__icontains=keyword) |
-                                    Q(information_address__icontains=keyword)
+                                    Q(information_address__icontains=keyword) |
+                                    Q(photographer_name__icontains=keyword)
                                     for keyword in keywords
                                     ]
             # print(f"text place q objcets:{text_place_q_objects}")
@@ -99,7 +100,8 @@ def search(request):
                                        Q(keywords__icontains=keyword) |
                                        Q(information_source__icontains=keyword) |
                                        Q(copyright_owner__icontains=keyword) |
-                                       Q(information_address__icontains=keyword)
+                                       Q(information_address__icontains=keyword) |
+                                       Q(photographer_name__icontains=keyword)
                                        for keyword in keywords
                                        ]
 
@@ -117,7 +119,8 @@ def search(request):
                                          Q(keywords__icontains=keyword) |
                                          Q(information_source__icontains=keyword) |
                                          Q(copyright_owner__icontains=keyword) |
-                                         Q(information_address__icontains=keyword)
+                                         Q(information_address__icontains=keyword) |
+                                         Q(photographer_name__icontains=keyword)
                                          for keyword in keywords
                                          ]
 

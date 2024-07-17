@@ -1,5 +1,6 @@
 <!-- imgapp/templates/img_cultural_detail.html -->
 {% extends 'imgapp/base.html' %}
+{% load static %}
 
 {% block title %}ImgCultural Detail{% endblock %}
 
@@ -7,7 +8,7 @@
     <h1 class="mb-4">ImgCultural Detail</h1>
     <p><strong>Keywords:</strong> {{ item.keywords }}</p>
     <p><strong>Information Source:</strong> {{ item.information_source }}</p>
-    <p><strong>Information Address:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p><strong>Information Address:</strong> <a href="{% static '' %}{{ item.information_address }}">{{ item.information_address }}</a></p>
     <p><strong>Copyright Owner:</strong> {{ item.copyright_owner }}</p>
     <p><strong>Photographer Name:</strong> {{ item.photographer_name }}</p>
 
