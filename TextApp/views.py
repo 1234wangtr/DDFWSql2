@@ -52,57 +52,80 @@ def text_humanistic_success(request):
 # 搜索
 from django.db.models import Q
 
+from functools import reduce
+from operator import and_
 
 def search(request):
     form = SearchForm()
     results = []
     query = ''
+
     if request.method == 'GET':
         form = SearchForm(request.GET)
         if form.is_valid():
-            query = form.cleaned_data['keywords']
-            keywords = query.split()
-            q_objects = Q()
-            for keyword in keywords:
-                q_objects &= Q(
-                    Q(keywords__icontains=keyword) |
-                    Q(information_source__icontains=keyword) |
-                    Q(copyright_owner__icontains=keyword) |
-                    Q(information_address__icontains=keyword)
-                )
+            query = form.cleaned_data.get('keywords', '')
+            keywords = query.split(' ')
+            print(keywords)
+            # Process TextPlace filtering
+            text_place_q_objects = [Q(
+                place_location_level1__name__icontains=keyword) |
+                                    Q(place_location_level2__name__icontains=keyword) |
+                                    Q(place_location_level3__name__icontains=keyword) |
+                                    Q(place_natural_level1__name__icontains=keyword) |
+                                    Q(place_natural_level2__name__icontains=keyword) |
+                                    Q(place_natural_level3__name__icontains=keyword) |
+                                    Q(place_humanistic_level1__name__icontains=keyword) |
+                                    Q(place_humanistic_level2__name__icontains=keyword) |
+                                    Q(place_humanistic_level3__name__icontains=keyword) |
+                                    Q(keywords__icontains=keyword) |
+                                    Q(information_source__icontains=keyword) |
+                                    Q(copyright_owner__icontains=keyword) |
+                                    Q(information_address__icontains=keyword)
+                                    for keyword in keywords
+                                    ]
+            # print(f"text place q objcets:{text_place_q_objects}")
+            text_place_q = reduce(and_, text_place_q_objects)
 
-            text_place_results = TextPlace.objects.filter(
-                q_objects |
-                Q(place_location_level1__name__icontains=keyword) |
-                Q(place_location_level2__name__icontains=keyword) |
-                Q(place_location_level3__name__icontains=keyword) |
-                Q(place_natural_level1__name__icontains=keyword) |
-                Q(place_natural_level2__name__icontains=keyword) |
-                Q(place_natural_level3__name__icontains=keyword) |
-                Q(place_humanistic_level1__name__icontains=keyword) |
-                Q(place_humanistic_level2__name__icontains=keyword) |
-                Q(place_humanistic_level3__name__icontains=keyword)
-            )
+            text_place_results = TextPlace.objects.filter(text_place_q)
 
-            text_cultural_results = TextCultural.objects.filter(
-                q_objects |
-                Q(cultural_agri_product_level1__name__icontains=keyword) |
-                Q(cultural_agri_product_level2__name__icontains=keyword) |
-                Q(cultural_delicacies_level1__name__icontains=keyword) |
-                Q(cultural_delicacies_level2__name__icontains=keyword) |
-                Q(cultural_processed_product_level1__name__icontains=keyword) |
-                Q(cultural_processed_product_level2__name__icontains=keyword)
-            )
+            text_cultural_q_objects = [Q(
+                cultural_agri_product_level1__name__icontains=keyword) |
+                                       Q(cultural_agri_product_level2__name__icontains=keyword) |
+                                       Q(cultural_delicacies_level1__name__icontains=keyword) |
+                                       Q(cultural_delicacies_level2__name__icontains=keyword) |
+                                       Q(cultural_processed_product_level1__name__icontains=keyword) |
+                                       Q(cultural_processed_product_level2__name__icontains=keyword) |
+                                       Q(keywords__icontains=keyword) |
+                                       Q(information_source__icontains=keyword) |
+                                       Q(copyright_owner__icontains=keyword) |
+                                       Q(information_address__icontains=keyword)
+                                       for keyword in keywords
+                                       ]
 
-            text_humanistic_results = TextHumanistic.objects.filter(
-                q_objects |
-                Q(humanistic_category_level1__name__icontains=keyword) |
-                Q(humanistic_category_level2__name__icontains=keyword) |
-                Q(humanistic_heritage_level1__name__icontains=keyword) |
-                Q(humanistic_heritage_level2__name__icontains=keyword) |
-                Q(humanistic_topic_level1__name__icontains=keyword) |
-                Q(humanistic_topic_level2__name__icontains=keyword)
-            )
+            text_cultural_q = reduce(and_, text_cultural_q_objects)
+
+            text_cultural_results = TextCultural.objects.filter(text_cultural_q)
+
+            text_humanistic_q_objects = [Q(
+                humanistic_category_level1__name__icontains=keyword) |
+                                         Q(humanistic_category_level2__name__icontains=keyword) |
+                                         Q(humanistic_heritage_level1__name__icontains=keyword) |
+                                         Q(humanistic_heritage_level2__name__icontains=keyword) |
+                                         Q(humanistic_topic_level1__name__icontains=keyword) |
+                                         Q(humanistic_topic_level2__name__icontains=keyword) |
+                                         Q(keywords__icontains=keyword) |
+                                         Q(information_source__icontains=keyword) |
+                                         Q(copyright_owner__icontains=keyword) |
+                                         Q(information_address__icontains=keyword)
+                                         for keyword in keywords
+                                         ]
+
+            text_humanistic_q = reduce(and_, text_humanistic_q_objects)
+
+            text_humanistic_results = TextHumanistic.objects.filter(text_humanistic_q)
+
+
+
 
             results = [
                 {'type': 'TextPlace', 'data': item} for item in text_place_results

@@ -2,6 +2,12 @@ from django.shortcuts import render
 
 # Create your views here.
 
+# 主页
+
+def core_home(request):
+    return render(request, 'coreapp/core_home.html')
+
+
 # 在地
 from django.http import JsonResponse
 from .models import PlaceLocation, PlaceNatural, PlaceHumanistic

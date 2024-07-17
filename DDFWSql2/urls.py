@@ -20,9 +20,13 @@ from django.urls import path
 
 from django.urls import path, include
 
+from CoreApp.views import core_home
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('core/', include('CoreApp.urls')),
     path('text/', include('TextApp.urls')),
-    path('img/',include('ImageApp.urls'))
+    path('img/',include('ImageApp.urls')),
+
+    path('', core_home, name='core_home'),
 ]
