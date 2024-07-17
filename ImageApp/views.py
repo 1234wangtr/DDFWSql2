@@ -45,7 +45,7 @@ def img_humanistic_create(request):
     return render(request, 'imgapp/img_humanistic_form.html', {'form': form})
 
 def img_humanistic_success(request):
-    return render(request, 'imgapp/success.html', {'message': '人文图片添加成功！'})
+    return render(request, 'imgapp/success.html', {'message': '文化图片添加成功！'})
 
 
 

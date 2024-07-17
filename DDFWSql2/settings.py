@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-3ij2&alrb=6@15kdozerd@rvn!0t(k9wfgxy=yy0s5qwmlo+q9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.10.119',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -122,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 静态文件的收集目录
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'ImageApp/static'),
