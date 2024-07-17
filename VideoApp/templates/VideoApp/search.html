@@ -1,0 +1,39 @@
+{% extends 'videoapp/base.html' %}
+{% load static %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
+    <form method="GET" action="{% url 'search_video' %}">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">搜索</button>
+    </form>
+    
+    {% if results %}
+        <ul class="list-group mt-4">
+            {% for result in results %}
+                {% if result.type == 'VideoPlace' %}
+                    <li class="list-group-item">
+                        <a href="{% url 'video_place_detail' result.data.id %}">
+                            VideoPlace: {{ result.data.keywords }}
+                        </a>
+                    </li>
+                {% elif result.type == 'VideoCultural' %}
+                    <li class="list-group-item">
+                        <a href="{% url 'video_cultural_detail' result.data.id %}">
+                            VideoCultural: {{ result.data.keywords }}
+                        </a>
+                    </li>
+                {% elif result.type == 'VideoHumanistic' %}
+                    <li class="list-group-item">
+                        <a href="{% url 'video_humanistic_detail' result.data.id %}">
+                            VideoHumanistic: {{ result.data.keywords }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="mt-4">没有找到搜索结果</p>
+    {% endif %}
+{% endblock %}

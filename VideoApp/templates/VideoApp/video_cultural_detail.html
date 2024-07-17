@@ -1,0 +1,27 @@
+{% extends 'videoapp/base.html' %}
+
+{% block title %}VideoCultural Detail{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">VideoCultural Detail</h1>
+    <p><strong>Keywords:</strong> {{ item.keywords }}</p>
+    <p><strong>Information Address:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p><strong>Copyright Owner:</strong> {{ item.copyright_owner }}</p>
+    <p><strong>Project File Name:</strong> {{ item.dir_name }}</p>
+    <p><strong>Special Name:</strong> {{ item.special_name }}</p>
+    <p><strong>Season:</strong> {{ item.season }}</p>
+    <p><strong>Video Class:</strong> {{ item.video_class }}</p>
+    <p><strong>Picture Frame:</strong> {{ item.picture_frame }}</p>
+
+    <p><strong>Cultural Agri Product Level 1:</strong> {{ item.cultural_agri_product_level1.name }}</p>
+    <p><strong>Cultural Agri Product Level 2:</strong> {{ item.cultural_agri_product_level2.name }}</p>
+
+    <p><strong>Cultural Delicacies Level 1:</strong> {{ item.cultural_delicacies_level1.name }}</p>
+    <p><strong>Cultural Delicacies Level 2:</strong> {{ item.cultural_delicacies_level2.name }}</p>
+
+    <p><strong>Cultural Processed Product Level 1:</strong> {{ item.cultural_processed_product_level1.name }}</p>
+    <p><strong>Cultural Processed Product Level 2:</strong> {{ item.cultural_processed_product_level2.name }}</p>
+
+    <a href="{% url 'video_home' %}" class="btn btn-secondary mt-4">Back to Home</a>
+    <button class="btn btn-secondary mt-4" onclick="window.history.back()">Go back</button>
+{% endblock %}

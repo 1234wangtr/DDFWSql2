@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('core/', include('CoreApp.urls')),
     path('text/', include('TextApp.urls')),
-    path('img/',include('ImageApp.urls')),
+    path('img/', include('ImageApp.urls')),
+    path('video/', include('VideoApp.urls')),
 
     path('', core_home, name='core_home'),
 ]

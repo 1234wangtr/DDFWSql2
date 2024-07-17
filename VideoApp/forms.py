@@ -1,18 +1,16 @@
-# ImgApp/forms.py
 from django import forms
-from .models import ImgPlace
-from CoreApp.models import PlaceLocation, PlaceNatural, PlaceHumanistic
+from .models import *
+from CoreApp.models import *
 
-
-class ImgPlaceForm(forms.ModelForm):
+class VideoPlaceForm(forms.ModelForm):
     class Meta:
-        model = ImgPlace
+        model = VideoPlace
         fields = [
-            'information_address', 'information_source', 'copyright_owner',
-            'keywords', 'photographer_name', 'place_location_level1',
-            'place_location_level2', 'place_location_level3', 'place_natural_level1',
-            'place_natural_level2', 'place_natural_level3', 'place_humanistic_level1',
-            'place_humanistic_level2', 'place_humanistic_level3'
+            'keywords', 'information_address', 'copyright_owner',
+            'dir_name', 'special_name', 'season', 'video_class', 'picture_frame',
+            'place_location_level1', 'place_location_level2', 'place_location_level3',
+            'place_natural_level1', 'place_natural_level2', 'place_natural_level3',
+            'place_humanistic_level1', 'place_humanistic_level2', 'place_humanistic_level3',
         ]
 
         widgets = {
@@ -30,8 +28,11 @@ class ImgPlaceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['place_location_level1'].queryset = PlaceLocation.objects.filter(parent__isnull=True)
+
         self.fields['place_natural_level1'].queryset = PlaceNatural.objects.filter(parent__isnull=True)
+
         self.fields['place_humanistic_level1'].queryset = PlaceHumanistic.objects.filter(parent__isnull=True)
+
 
         if 'place_location_level1' in self.data:
             try:
@@ -87,36 +88,15 @@ class ImgPlaceForm(forms.ModelForm):
         else:
             self.fields['place_humanistic_level3'].queryset = PlaceHumanistic.objects.none()
 
-    def clean(self):
-        cleaned_data = super().clean()
-        if not cleaned_data.get('place_location_level1'):
-            cleaned_data['place_location_level2'] = None
-            cleaned_data['place_location_level3'] = None
-        if not cleaned_data.get('place_natural_level1'):
-            cleaned_data['place_natural_level2'] = None
-            cleaned_data['place_natural_level3'] = None
-        if not cleaned_data.get('place_humanistic_level1'):
-            cleaned_data['place_humanistic_level2'] = None
-            cleaned_data['place_humanistic_level3'] = None
-        return cleaned_data
-
-
-
-
-# ImgApp/forms.py
-from django import forms
-from .models import ImgPlace, ImgCultural, ImgHumanistic
-from CoreApp.models import CulturalAgriProduct, CulturalDelicacies, CulturalProcessedProduct
-
-class ImgCulturalForm(forms.ModelForm):
+class VideoCulturalForm(forms.ModelForm):
     class Meta:
-        model = ImgCultural
+        model = VideoCultural
         fields = [
-            'information_address', 'information_source', 'copyright_owner',
-            'keywords', 'photographer_name', 'cultural_agri_product_level1',
-            'cultural_agri_product_level2', 'cultural_delicacies_level1',
-            'cultural_delicacies_level2', 'cultural_processed_product_level1',
-            'cultural_processed_product_level2'
+            'keywords', 'information_address', 'copyright_owner',
+            'dir_name', 'special_name', 'season', 'video_class', 'picture_frame',
+            'cultural_agri_product_level1', 'cultural_agri_product_level2',
+            'cultural_delicacies_level1', 'cultural_delicacies_level2',
+            'cultural_processed_product_level1', 'cultural_processed_product_level2'
         ]
 
         widgets = {
@@ -130,25 +110,23 @@ class ImgCulturalForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Initialize queryset for cultural_agri_product_level1, cultural_agri_product_level2, etc.
         self.fields['cultural_agri_product_level1'].queryset = CulturalAgriProduct.objects.filter(parent__isnull=True)
         self.fields['cultural_delicacies_level1'].queryset = CulturalDelicacies.objects.filter(parent__isnull=True)
         self.fields['cultural_processed_product_level1'].queryset = CulturalProcessedProduct.objects.filter(parent__isnull=True)
 
 
-# ImgApp/forms.py
-from django import forms
-from .models import ImgPlace, ImgCultural, ImgHumanistic
-from CoreApp.models import HumanisticCategory, HumanisticHeritage, HumanisticTopic
+### VideoHumanisticForm
 
-class ImgHumanisticForm(forms.ModelForm):
+class VideoHumanisticForm(forms.ModelForm):
     class Meta:
-        model = ImgHumanistic
+        model = VideoHumanistic
         fields = [
-            'information_address', 'information_source', 'copyright_owner',
-            'keywords', 'photographer_name', 'humanistic_category_level1',
-            'humanistic_category_level2', 'humanistic_heritage_level1',
-            'humanistic_heritage_level2', 'humanistic_topic_level1',
-            'humanistic_topic_level2'
+            'keywords', 'information_address', 'copyright_owner',
+            'dir_name', 'special_name', 'season', 'video_class', 'picture_frame',
+            'humanistic_category_level1', 'humanistic_category_level2',
+            'humanistic_heritage_level1', 'humanistic_heritage_level2',
+            'humanistic_topic_level1', 'humanistic_topic_level2'
         ]
 
         widgets = {
@@ -162,15 +140,12 @@ class ImgHumanisticForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Initialize queryset for humanistic_category_level1, humanistic_category_level2, etc.
         self.fields['humanistic_category_level1'].queryset = HumanisticCategory.objects.filter(parent__isnull=True)
-        # self.fields['humanistic_category_level2'].queryset = HumanisticCategory.objects.none()
         self.fields['humanistic_heritage_level1'].queryset = HumanisticHeritage.objects.filter(parent__isnull=True)
-        # self.fields['humanistic_heritage_level2'].queryset = HumanisticHeritage.objects.none()
         self.fields['humanistic_topic_level1'].queryset = HumanisticTopic.objects.filter(parent__isnull=True)
-        # self.fields['humanistic_topic_level2'].queryset = HumanisticTopic.objects.none()
 
-# 搜索
-from django import forms
+
 
 class SearchForm(forms.Form):
     keywords = forms.CharField(max_length=255, help_text="输入关键词（用空格分隔）", label='关键词')

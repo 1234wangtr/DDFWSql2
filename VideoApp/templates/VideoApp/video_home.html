@@ -1,4 +1,4 @@
-{% extends 'imgapp/base.html' %}
+{% extends 'videoapp/base.html' %}
 
 {% block title %}Home{% endblock %}
 
@@ -8,27 +8,27 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add ImgPlace</h5>
-                    <p class="card-text">Add a new ImgPlace record to the database.</p>
-                    <a href="{% url 'img_place_create' %}" class="btn btn-primary">Add ImgPlace</a>
+                    <h5 class="card-title">Add VideoPlace</h5>
+                    <p class="card-text">Add a new VideoPlace record to the database.</p>
+                    <a href="{% url 'video_place_create' %}" class="btn btn-primary">Add VideoPlace</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add ImgCultural</h5>
-                    <p class="card-text">Add a new ImgCultural record to the database.</p>
-                    <a href="{% url 'img_cultural_create' %}" class="btn btn-primary">Add ImgCultural</a>
+                    <h5 class="card-title">Add VideoCultural</h5>
+                    <p class="card-text">Add a new VideoCultural record to the database.</p>
+                    <a href="{% url 'video_cultural_create' %}" class="btn btn-primary">Add VideoCultural</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add ImgHumanistic</h5>
-                    <p class="card-text">Add a new ImgHumanistic record to the database.</p>
-                    <a href="{% url 'img_humanistic_create' %}" class="btn btn-primary">Add ImgHumanistic</a>
+                    <h5 class="card-title">Add VideoHumanistic</h5>
+                    <p class="card-text">Add a new VideoHumanistic record to the database.</p>
+                    <a href="{% url 'video_humanistic_create' %}" class="btn btn-primary">Add VideoHumanistic</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Search Records</h5>
                     <p class="card-text">Search for records in the database.</p>
-                    <a href="{% url 'search_img' %}" class="btn btn-primary">Search</a>
+                    <a href="{% url 'search_video' %}" class="btn btn-primary">Search</a>
                 </div>
             </div>
         </div>
