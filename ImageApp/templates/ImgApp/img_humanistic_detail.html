@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Img Humanistic Detail</title>
-</head>
-<body>
-    <h1>Img Humanistic Detail</h1>
-    <p>Keywords: {{ item.keywords }}</p>
-    <p>Information Source: {{ item.information_source }}</p>
-    <p>Copyright owner: {{ item.copyright_owner }}</p>
-    <p>Photographer: {{ item.photographer_name }}</p>
-    <p>Information Address: <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
-    <p>Humanistic Category Level 1: {{ item.humanistic_category_level1 }}</p>
-    <p>Humanistic Category Level 2: {{ item.humanistic_category_level2 }}</p>
-    <p>Humanistic Heritage Level 1: {{ item.humanistic_heritage_level1 }}</p>
-    <p>Humanistic Heritage Level 2: {{ item.humanistic_heritage_level2 }}</p>
-    <p>Humanistic Topic Level 1: {{ item.humanistic_topic_level1 }}</p>
-    <p>Humanistic Topic Level 2: {{ item.humanistic_topic_level2 }}</p>
-    <a href="{% url 'img_home' %}">Back to Home</a>
-</body>
-</html>
+<!-- imgapp/templates/img_humanistic_detail.html -->
+{% extends 'imgapp/base.html' %}
+
+{% block title %}ImgHumanistic Detail{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">ImgHumanistic Detail</h1>
+    <p><strong>Keywords:</strong> {{ item.keywords }}</p>
+    <p><strong>Information Source:</strong> {{ item.information_source }}</p>
+    <p><strong>Information Address:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p><strong>Copyright Owner:</strong> {{ item.copyright_owner }}</p>
+    <p><strong>Photographer Name:</strong> {{ item.photographer_name }}</p>
+
+    <p><strong>Humanistic Category Level 1:</strong> {{ item.humanistic_category_level1.name }}</p>
+    <p><strong>Humanistic Category Level 2:</strong> {{ item.humanistic_category_level2.name }}</p>
+
+    <p><strong>Humanistic Heritage Level 1:</strong> {{ item.humanistic_heritage_level1.name }}</p>
+    <p><strong>Humanistic Heritage Level 2:</strong> {{ item.humanistic_heritage_level2.name }}</p>
+
+    <p><strong>Humanistic Topic Level 1:</strong> {{ item.humanistic_topic_level1.name }}</p>
+    <p><strong>Humanistic Topic Level 2:</strong> {{ item.humanistic_topic_level2.name }}</p>
+
+    <a href="{% url 'img_home' %}" class="btn btn-secondary mt-4">Back to Home</a>
+    <button class="btn btn-secondary mt-4" onclick="window.history.back()">Go back</button>
+{% endblock %}
