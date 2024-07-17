@@ -2,25 +2,25 @@
 {% extends 'imgapp/base.html' %}
 {% load static %}
 
-{% block title %}ImgHumanistic Detail{% endblock %}
+{% block title %}文化图片详情{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">ImgHumanistic Detail</h1>
-    <p><strong>Keywords:</strong> {{ item.keywords }}</p>
-    <p><strong>Information Source:</strong> {{ item.information_source }}</p>
-    <p><strong>Information Address:</strong> <a href="{% static '' %}{{ item.information_address }}">{{ item.information_address }}</a></p>
-    <p><strong>Copyright Owner:</strong> {{ item.copyright_owner }}</p>
-    <p><strong>Photographer Name:</strong> {{ item.photographer_name }}</p>
+    <h1 class="mb-4">文化图片详情</h1>
+    <p><strong>关键词:</strong> {{ item.keywords }}</p>
+    <p><strong>信息来源:</strong> {{ item.information_source }}</p>
+    <p><strong>信息地址:</strong> <a href="{% static '' %}{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p><strong>知识产权归属:</strong> {{ item.copyright_owner }}</p>
+    <p><strong>摄影师:</strong> {{ item.photographer_name }}</p>
 
-    <p><strong>Humanistic Category Level 1:</strong> {{ item.humanistic_category_level1.name }}</p>
-    <p><strong>Humanistic Category Level 2:</strong> {{ item.humanistic_category_level2.name }}</p>
+    <p><strong>文化类型1级:</strong> {{ item.humanistic_category_level1.name }}</p>
+    <p><strong>文化类型2级:</strong> {{ item.humanistic_category_level2.name }}</p>
 
-    <p><strong>Humanistic Heritage Level 1:</strong> {{ item.humanistic_heritage_level1.name }}</p>
-    <p><strong>Humanistic Heritage Level 2:</strong> {{ item.humanistic_heritage_level2.name }}</p>
+    <p><strong>文化遗产1级:</strong> {{ item.humanistic_heritage_level1.name }}</p>
+    <p><strong>文化遗产2级:</strong> {{ item.humanistic_heritage_level2.name }}</p>
 
-    <p><strong>Humanistic Topic Level 1:</strong> {{ item.humanistic_topic_level1.name }}</p>
-    <p><strong>Humanistic Topic Level 2:</strong> {{ item.humanistic_topic_level2.name }}</p>
+    <p><strong>文化专题1级:</strong> {{ item.humanistic_topic_level1.name }}</p>
+    <p><strong>文化专题2级:</strong> {{ item.humanistic_topic_level2.name }}</p>
 
-    <a href="{% url 'img_home' %}" class="btn btn-secondary mt-4">Back to Home</a>
-    <button class="btn btn-secondary mt-4" onclick="window.history.back()">Go back</button>
+    <a href="{% url 'img_home' %}" class="btn btn-secondary mt-4">返回主页</a>
+    <button class="btn btn-secondary mt-4" onclick="window.history.back()">上一级</button>
 {% endblock %}

@@ -14,7 +14,7 @@ def img_place_create(request):
     return render(request, 'imgapp/img_place_form.html', {'form': form})
 
 def img_place_success(request):
-    return render(request, 'imgapp/success.html', {'message': 'ImgPlace created successfully!'})
+    return render(request, 'imgapp/success.html', {'message': '在地图片添加成功！'})
 
 def img_home(request):
     return render(request, 'imgapp/img_home.html')
@@ -31,7 +31,7 @@ def img_cultural_create(request):
     return render(request, 'imgapp/img_cultural_form.html', {'form': form})
 
 def img_cultural_success(request):
-    return render(request, 'imgapp/success.html', {'message': 'ImgCultural created successfully!'})
+    return render(request, 'imgapp/success.html', {'message': '物产图片添加成功！'})
 
 from .forms import ImgHumanisticForm
 def img_humanistic_create(request):
@@ -45,7 +45,7 @@ def img_humanistic_create(request):
     return render(request, 'imgapp/img_humanistic_form.html', {'form': form})
 
 def img_humanistic_success(request):
-    return render(request, 'imgapp/success.html', {'message': 'ImgHumanistic created successfully!'})
+    return render(request, 'imgapp/success.html', {'message': '人文图片添加成功！'})
 
 
 
