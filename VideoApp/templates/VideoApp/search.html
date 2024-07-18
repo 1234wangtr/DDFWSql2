@@ -1,6 +1,6 @@
 {% extends 'videoapp/base.html' %}
 {% load static %}
-{% block title %}Search Results{% endblock %}
+{% block title %}搜索结果{% endblock %}
 
 {% block content %}
     <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
@@ -15,19 +15,19 @@
                 {% if result.type == 'VideoPlace' %}
                     <li class="list-group-item">
                         <a href="{% url 'video_place_detail' result.data.id %}">
-                            VideoPlace: {{ result.data.keywords }}
+                            在地视频: {{ result.data.keywords }}
                         </a>
                     </li>
                 {% elif result.type == 'VideoCultural' %}
                     <li class="list-group-item">
                         <a href="{% url 'video_cultural_detail' result.data.id %}">
-                            VideoCultural: {{ result.data.keywords }}
+                            物产视频: {{ result.data.keywords }}
                         </a>
                     </li>
                 {% elif result.type == 'VideoHumanistic' %}
                     <li class="list-group-item">
                         <a href="{% url 'video_humanistic_detail' result.data.id %}">
-                            VideoHumanistic: {{ result.data.keywords }}
+                            文化视频: {{ result.data.keywords }}
                         </a>
                     </li>
                 {% endif %}

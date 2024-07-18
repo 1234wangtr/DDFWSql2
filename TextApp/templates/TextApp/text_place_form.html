@@ -1,6 +1,6 @@
 {% extends 'textapp/base.html' %}
 
-{% block title %}Add TextPlace{% endblock %}
+{% block title %}增加在地文字{% endblock %}
 
 {% block extra_head %}
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -8,69 +8,69 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="mb-4">Add TextPlace</h1>
+    <h1 class="mb-4">增加在地文字</h1>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-    <label for="id_keywords">Keywords</label>
+    <label for="id_keywords">关键词</label>
     <input type="text" class="form-control" id="id_keywords" name="keywords" style="width: 50%;">
 </div>
     <hr style="border-top: 1px solid #ccc;">
     <div class="form-group">
-        <label for="id_information_source">Information Source</label>
+        <label for="id_information_source">信息来源</label>
         {{ form.information_source }}
     </div>
     <hr style="border-top: 1px solid #ccc;">
     <div class="form-group">
-        <label for="id_copyright_owner">Copyright Owner</label>
+        <label for="id_copyright_owner">知识产权归属</label>
         {{ form.copyright_owner }}
     </div>
     <hr style="border-top: 1px solid #ccc;">
     <div class="form-group">
-        <label for="id_information_address">Information Address</label>
+        <label for="id_information_address">信息地址</label>
         <input type="text" class="form-control" id="id_information_address" name="information_address" style="width: 50%;">
     </div>
     <hr style="border-top: 1px solid #ccc;">
 
         <div class="form-group">
-            <label for="id_place_location_level1">Place Location Level 1</label>
+            <label for="id_place_location_level1">行政区划1级</label>
             {{ form.place_location_level1 }}
         </div>
         <div class="form-group">
-            <label for="id_place_location_level2">Place Location Level 2</label>
+            <label for="id_place_location_level2">行政区划2级</label>
             {{ form.place_location_level2 }}
         </div>
         <div class="form-group">
-            <label for="id_place_location_level3">Place Location Level 3</label>
+            <label for="id_place_location_level3">行政区划3级</label>
             {{ form.place_location_level3 }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_place_natural_level1">Place Natural Level 1</label>
+            <label for="id_place_natural_level1">自然景观1级</label>
             {{ form.place_natural_level1 }}
         </div>
         <div class="form-group">
-            <label for="id_place_natural_level2">Place Natural Level 2</label>
+            <label for="id_place_natural_level2">自然景观2级</label>
             {{ form.place_natural_level2 }}
         </div>
         <div class="form-group">
-            <label for="id_place_natural_level3">Place Natural Level 3</label>
+            <label for="id_place_natural_level3">自然景观3级</label>
             {{ form.place_natural_level3 }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_place_humanistic_level1">Place Humanistic Level 1</label>
+            <label for="id_place_humanistic_level1">人文景观1级</label>
             {{ form.place_humanistic_level1 }}
         </div>
         <div class="form-group">
-            <label for="id_place_humanistic_level2">Place Humanistic Level 2</label>
+            <label for="id_place_humanistic_level2">人文景观2级</label>
             {{ form.place_humanistic_level2 }}
         </div>
         <div class="form-group">
-            <label for="id_place_humanistic_level3">Place Humanistic Level 3</label>
+            <label for="id_place_humanistic_level3">人文景观3级</label>
             {{ form.place_humanistic_level3 }}
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Save</button>
+        <button type="submit" class="btn btn-primary mt-3">保存</button>
     </form>
 </div>
 

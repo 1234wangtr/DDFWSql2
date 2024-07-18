@@ -1,34 +1,34 @@
 {% extends 'textapp/base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}文字数据库{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">Welcome to DDFWSql2</h1>
+    <h1 class="mb-4">欢迎来到文字数据库</h1>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add TextPlace</h5>
-                    <p class="card-text">Add a new TextPlace record to the database.</p>
-                    <a href="{% url 'text_place_create' %}" class="btn btn-primary">Add TextPlace</a>
+                    <h5 class="card-title">增加在地文字</h5>
+                    <p class="card-text">录入一条在地文字.</p>
+                    <a href="{% url 'text_place_create' %}" class="btn btn-primary">增加在地文字</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add TextCultural</h5>
-                    <p class="card-text">Add a new TextCultural record to the database.</p>
-                    <a href="{% url 'text_cultural_create' %}" class="btn btn-primary">Add TextCultural</a>
+                    <h5 class="card-title">增加在地物产</h5>
+                    <p class="card-text">录入一条在地物产.</p>
+                    <a href="{% url 'text_cultural_create' %}" class="btn btn-primary">增加在地物产</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add TextHumanistic</h5>
-                    <p class="card-text">Add a new TextHumanistic record to the database.</p>
-                    <a href="{% url 'text_humanistic_create' %}" class="btn btn-primary">Add TextHumanistic</a>
+                    <h5 class="card-title">增加在地文化</h5>
+                    <p class="card-text">录入一条在地文化.</p>
+                    <a href="{% url 'text_humanistic_create' %}" class="btn btn-primary">增加在地文化</a>
                 </div>
             </div>
         </div>
@@ -37,9 +37,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Search Records</h5>
-                    <p class="card-text">Search for records in the database.</p>
-                    <a href="{% url 'search_text' %}" class="btn btn-primary">Search</a>
+                    <h5 class="card-title">搜索</h5>
+                    <p class="card-text">搜索所有文字.</p>
+                    <a href="{% url 'search_text' %}" class="btn btn-primary">搜索</a>
                 </div>
             </div>
         </div>

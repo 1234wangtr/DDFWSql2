@@ -1,6 +1,6 @@
 {% extends 'imgapp/base.html' %}
 {% load static %}
-{% block title %}Search Results{% endblock %}
+{% block title %}搜索结果{% endblock %}
 
 {% block content %}
     <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
@@ -17,21 +17,21 @@
                     <li class="list-group-item">
                         <a href="{% url 'img_place_detail' result.data.id %}">
                             <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
-                            ImgPlace: {{ result.data.keywords }}
+                            在地图片: {{ result.data.keywords }}
                         </a>
                     </li>
                 {% elif result.type == 'ImgCultural' %}
                     <li class="list-group-item">
                         <a href="{% url 'img_cultural_detail' result.data.id %}">
                             <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
-                            ImgCultural: {{ result.data.keywords }}
+                            物产图片: {{ result.data.keywords }}
                         </a>
                     </li>
                 {% elif result.type == 'ImgHumanistic' %}
                     <li class="list-group-item">
                         <a href="{% url 'img_humanistic_detail' result.data.id %}">
                             <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
-                            ImgHumanistic: {{ result.data.keywords }}
+                            文化图片: {{ result.data.keywords }}
                         </a>
                     </li>
                 {% endif %}

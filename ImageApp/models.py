@@ -49,7 +49,7 @@ class ImgPlace(models.Model):
     place_humanistic_level3 = models.ForeignKey(PlaceHumanistic, on_delete=models.CASCADE,
                                                 related_name='img_places_level3', blank=True, null=True)
     def __str__(self):
-        return f"ImgPlace: {self.keywords}"
+        return f"在地图片: {self.keywords}"
 
 
 class ImgCultural(models.Model):
@@ -75,7 +75,7 @@ class ImgCultural(models.Model):
                                                          related_name='img_cultural_level2', blank=True, null=True)
 
     def __str__(self):
-        return f"ImgCultural: {self.keywords}"
+        return f"物产图片: {self.keywords}"
 
 
 class ImgHumanistic(models.Model):
@@ -101,4 +101,4 @@ class ImgHumanistic(models.Model):
                                                 related_name='img_humanistic_level2', blank=True, null=True)
 
     def __str__(self):
-        return f"ImgHumanistic: {self.keywords}"
+        return f"文化图片: {self.keywords}"

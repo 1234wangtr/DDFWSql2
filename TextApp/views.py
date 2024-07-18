@@ -13,7 +13,7 @@ def text_place_create(request):
 
 def text_place_success(request):
     #return render(request, 'textapp/text_place_success.html')
-    return render(request, 'textapp/success.html', {'message': 'TextPlace created successfully!'})
+    return render(request, 'textapp/success.html', {'message': '在地文字添加成功！'})
 
 def text_home(request):
     return render(request, 'textapp/text_home.html')
@@ -30,7 +30,7 @@ def text_cultural_create(request):
     return render(request, 'textapp/text_cultural_form.html', {'form': form})
 
 def text_cultural_success(request):
-    return render(request, 'textapp/success.html', {'message': 'TextCultural created successfully!'})
+    return render(request, 'textapp/success.html', {'message': '物产文字添加成功！'})
 
 
 from django.shortcuts import render, redirect
@@ -47,7 +47,7 @@ def text_humanistic_create(request):
     return render(request, 'textapp/text_humanistic_form.html', {'form': form})
 
 def text_humanistic_success(request):
-    return render(request, 'textapp/success.html', {'message': 'TextHumanistic created successfully!'})
+    return render(request, 'textapp/success.html', {'message': '文化文字添加成功！'})
 
 # 搜索
 from django.db.models import Q

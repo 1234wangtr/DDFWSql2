@@ -4,22 +4,22 @@
 {% block title %}TextCultural Detail{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">TextCultural Detail</h1>
-    <p><strong>Keywords:</strong> {{ item.keywords }}</p>
-    <p><strong>Information Source:</strong> {{ item.information_source }}</p>
-    <p><strong>Information Address:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
-    <p><strong>Copyright Owner:</strong> {{ item.copyright_owner }}</p>
+    <h1 class="mb-4">物产文字详情</h1>
+    <p><strong>关键词:</strong> {{ item.keywords }}</p>
+    <p><strong>信息来源:</strong> {{ item.information_source }}</p>
+    <p><strong>信息地址:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+    <p><strong>知识产权归属:</strong> {{ item.copyright_owner }}</p>
 
-    <p><strong>Cultural Agri Product Level 1:</strong> {{ item.cultural_agri_product_level1.name }}</p>
-    <p><strong>Cultural Agri Product Level 2:</strong> {{ item.cultural_agri_product_level2.name }}</p>
+    <p><strong>初级农产品1级:</strong> {{ item.cultural_agri_product_level1.name }}</p>
+    <p><strong>初级农产品2级:</strong> {{ item.cultural_agri_product_level2.name }}</p>
 
-    <p><strong>Cultural Delicacies Level 1:</strong> {{ item.cultural_delicacies_level1.name }}</p>
-    <p><strong>Cultural Delicacies Level 2:</strong> {{ item.cultural_delicacies_level2.name }}</p>
+    <p><strong>美食1级:</strong> {{ item.cultural_delicacies_level1.name }}</p>
+    <p><strong>美食2级:</strong> {{ item.cultural_delicacies_level2.name }}</p>
 
-    <p><strong>Cultural Processed Product Level 1:</strong> {{ item.cultural_processed_product_level1.name }}</p>
-    <p><strong>Cultural Processed Product Level 2:</strong> {{ item.cultural_processed_product_level2.name }}</p>
+    <p><strong>加工食品1级:</strong> {{ item.cultural_processed_product_level1.name }}</p>
+    <p><strong>加工食品2级:</strong> {{ item.cultural_processed_product_level2.name }}</p>
 
-    <a href="{% url 'text_home' %}" class="btn btn-secondary mt-4">Back to Home</a>
-    <button class="btn btn-secondary mt-4" onclick="window.history.back()">Go back</button>
+    <a href="{% url 'text_home' %}" class="btn btn-secondary mt-4">返回主页</a>
+    <button class="btn btn-secondary mt-4" onclick="window.history.back()">上一级</button>
 
 {% endblock %}

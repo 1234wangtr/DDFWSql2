@@ -15,7 +15,7 @@ def video_place_create(request):
     return render(request, 'videoapp/video_place_form.html', {'form': form})
 
 def video_place_success(request):
-    return render(request, 'videoapp/success.html', {'message': 'VideoPlace created successfully!'})
+    return render(request, 'videoapp/success.html', {'message': '在地视频添加成功！'})
 
 def video_home(request):
     return render(request, 'videoapp/video_home.html')
@@ -32,7 +32,7 @@ def video_cultural_create(request):
     return render(request, 'videoapp/video_cultural_form.html', {'form': form})
 
 def video_cultural_success(request):
-    return render(request, 'videoapp/success.html', {'message': 'VideoCultural created successfully!'})
+    return render(request, 'videoapp/success.html', {'message': '物产视频添加成功！'})
 
 from .forms import VideoHumanisticForm
 def video_humanistic_create(request):
@@ -46,7 +46,7 @@ def video_humanistic_create(request):
     return render(request, 'videoapp/video_humanistic_form.html', {'form': form})
 
 def video_humanistic_success(request):
-    return render(request, 'videoapp/success.html', {'message': 'VideoHumanistic created successfully!'})
+    return render(request, 'videoapp/success.html', {'message': '文化视频添加成功！'})
 
 
 from django.shortcuts import render

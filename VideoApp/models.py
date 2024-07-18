@@ -63,7 +63,7 @@ class VideoPlace(models.Model):
     place_humanistic_level3 = models.ForeignKey(PlaceHumanistic, on_delete=models.CASCADE,
                                                 related_name='video_places_level3', blank=True, null=True)
     def __str__(self):
-        return f"VideoPlace: {self.keywords}"
+        return f"在地视频: {self.keywords}"
 
 # Define Cultural-related Video structure
 class VideoCultural(models.Model):
@@ -93,7 +93,7 @@ class VideoCultural(models.Model):
     cultural_processed_product_level2 = models.ForeignKey(CulturalProcessedProduct, on_delete=models.CASCADE,
                                                           related_name='video_cultural_level2', blank=True, null=True)
     def __str__(self):
-        return f"VideoCultural: {self.keywords}"
+        return f"物产视频: {self.keywords}"
 
 
 # Define Humanistic-related Video structure
@@ -123,4 +123,4 @@ class VideoHumanistic(models.Model):
                                                 related_name='video_humanistic_level2', blank=True, null=True)
 
     def __str__(self):
-        return f"VideoHumanistic: {self.keywords}"
+        return f"文化视频: {self.keywords}"

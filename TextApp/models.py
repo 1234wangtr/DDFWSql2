@@ -47,7 +47,7 @@ class TextPlace(models.Model):
                                                 related_name='text_places_humanistic_level3', blank=True, null=True)
 
     def __str__(self):
-        return f"TextPlace: {self.keywords}"
+        return f"在地文字: {self.keywords}"
 
 
 class TextCultural(models.Model):
@@ -78,7 +78,7 @@ class TextCultural(models.Model):
                                                           blank=True, null=True)
 
     def __str__(self):
-        return f"TextCultural: {self.keywords}"
+        return f"物产文字: {self.keywords}"
 
 
 class TextHumanistic(models.Model):
@@ -107,4 +107,4 @@ class TextHumanistic(models.Model):
                                                 related_name='text_humanistics_topic_level2', blank=True, null=True)
 
     def __str__(self):
-        return f"TextHumanistic: {self.keywords}"
+        return f"文化文字: {self.keywords}"

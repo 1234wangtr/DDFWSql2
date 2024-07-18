@@ -1,7 +1,7 @@
 <!-- videoapp/templates/video_humanistic_form.html -->
 {% extends 'videoapp/base.html' %}
 
-{% block title %}Add videoHumanistic{% endblock %}
+{% block title %}增加文化视频{% endblock %}
 
 {% block extra_head %}
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -9,76 +9,76 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="mb-4">Add VideoHumanistic</h1>
+    <h1 class="mb-4">增加文化视频</h1>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label for="id_keywords">Keywords</label>
+            <label for="id_keywords">关键词</label>
             <input type="text" class="form-control" id="id_keywords" name="keywords" style="width: 50%;">
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_information_address">Information Address</label>
+            <label for="id_information_address">信息地址</label>
             <input type="text" class="form-control" id="id_information_address" name="information_address" style="width: 50%;">
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_copyright_owner">Copyright Owner</label>
+            <label for="id_copyright_owner">知识产权归属</label>
             {{ form.copyright_owner }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_dir_name">Project File Name</label>
+            <label for="id_dir_name">文件名称</label>
             <input type="text" class="form-control" id="id_dir_name" name="dir_name" style="width: 50%;">
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_special_name">Special Name</label>
+            <label for="id_special_name">详细名称</label>
             <input type="text" class="form-control" id="id_special_name" name="special_name" style="width: 50%;">
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_season">Season</label>
+            <label for="id_season">季节</label>
             {{ form.season }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_video_class">Video Class</label>
+            <label for="id_video_class">视频类型</label>
             {{ form.video_class }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_picture_frame">Picture Frame</label>
+            <label for="id_picture_frame">画幅</label>
             {{ form.picture_frame }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_humanistic_category_level1">Humanistic Category Level 1</label>
+            <label for="id_humanistic_category_level1">文化类型1级</label>
             {{ form.humanistic_category_level1 }}
         </div>
         <div class="form-group">
-            <label for="id_humanistic_category_level2">Humanistic Category Level 2</label>
+            <label for="id_humanistic_category_level2">文化类型2级</label>
             {{ form.humanistic_category_level2 }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_humanistic_heritage_level1">Humanistic Heritage Level 1</label>
+            <label for="id_humanistic_heritage_level1">文化遗产1级</label>
             {{ form.humanistic_heritage_level1 }}
         </div>
         <div class="form-group">
-            <label for="id_humanistic_heritage_level2">Humanistic Heritage Level 2</label>
+            <label for="id_humanistic_heritage_level2">文化遗产2级</label>
             {{ form.humanistic_heritage_level2 }}
         </div>
         <hr style="border-top: 1px solid #ccc;">
         <div class="form-group">
-            <label for="id_humanistic_topic_level1">Humanistic Topic Level 1</label>
+            <label for="id_humanistic_topic_level1">文化专题1级</label>
             {{ form.humanistic_topic_level1 }}
         </div>
         <div class="form-group">
-            <label for="id_humanistic_topic_level2">Humanistic Topic Level 2</label>
+            <label for="id_humanistic_topic_level2">文化专题2级</label>
             {{ form.humanistic_topic_level2 }}
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Save</button>
+        <button type="submit" class="btn btn-primary mt-3">保存</button>
     </form>
 </div>
 

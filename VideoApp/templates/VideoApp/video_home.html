@@ -1,34 +1,34 @@
 {% extends 'videoapp/base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}视频数据库{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">Welcome to DDFWSql2</h1>
+    <h1 class="mb-4">欢迎来到视频数据库</h1>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add VideoPlace</h5>
-                    <p class="card-text">Add a new VideoPlace record to the database.</p>
-                    <a href="{% url 'video_place_create' %}" class="btn btn-primary">Add VideoPlace</a>
+                    <h5 class="card-title">增加在地视频</h5>
+                    <p class="card-text">录入一条在地视频.</p>
+                    <a href="{% url 'video_place_create' %}" class="btn btn-primary">增加在地视频</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add VideoCultural</h5>
-                    <p class="card-text">Add a new VideoCultural record to the database.</p>
-                    <a href="{% url 'video_cultural_create' %}" class="btn btn-primary">Add VideoCultural</a>
+                    <h5 class="card-title">增加物产视频</h5>
+                    <p class="card-text">录入一条物产视频.</p>
+                    <a href="{% url 'video_cultural_create' %}" class="btn btn-primary">增加物产视频</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add VideoHumanistic</h5>
-                    <p class="card-text">Add a new VideoHumanistic record to the database.</p>
-                    <a href="{% url 'video_humanistic_create' %}" class="btn btn-primary">Add VideoHumanistic</a>
+                    <h5 class="card-title">增加文化视频</h5>
+                    <p class="card-text">录入一条文化视频.</p>
+                    <a href="{% url 'video_humanistic_create' %}" class="btn btn-primary">增加文化视频</a>
                 </div>
             </div>
         </div>
@@ -37,9 +37,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Search Records</h5>
-                    <p class="card-text">Search for records in the database.</p>
-                    <a href="{% url 'search_video' %}" class="btn btn-primary">Search</a>
+                    <h5 class="card-title">搜索</h5>
+                    <p class="card-text">搜索所有视频.</p>
+                    <a href="{% url 'search_video' %}" class="btn btn-primary">搜索</a>
                 </div>
             </div>
         </div>

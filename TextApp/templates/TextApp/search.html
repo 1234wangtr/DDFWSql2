@@ -1,6 +1,6 @@
 {% extends 'textapp/base.html' %}
 
-{% block title %}Search Results{% endblock %}
+{% block title %}搜索结果{% endblock %}
 
 {% block content %}
     <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
@@ -13,11 +13,11 @@
         <ul class="list-group mt-4">
             {% for result in results %}
                 {% if result.type == 'TextPlace' %}
-                    <li class="list-group-item"><a href="{% url 'text_place_detail' result.data.id %}">TextPlace: {{ result.data.keywords }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'text_place_detail' result.data.id %}">在地文字: {{ result.data.keywords }}</a></li>
                 {% elif result.type == 'TextCultural' %}
-                    <li class="list-group-item"><a href="{% url 'text_cultural_detail' result.data.id %}">TextCultural: {{ result.data.keywords }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'text_cultural_detail' result.data.id %}">物产文字: {{ result.data.keywords }}</a></li>
                 {% elif result.type == 'TextHumanistic' %}
-                    <li class="list-group-item"><a href="{% url 'text_humanistic_detail' result.data.id %}">TextHumanistic: {{ result.data.keywords }}</a></li>
+                    <li class="list-group-item"><a href="{% url 'text_humanistic_detail' result.data.id %}">文化文字: {{ result.data.keywords }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>
