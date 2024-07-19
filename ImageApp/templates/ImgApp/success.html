@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>图片数据添加成功</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -11,6 +10,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         .container {
             text-align: center;
@@ -18,17 +18,33 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 600px;
         }
         .btn {
             margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="mb-4">{{ message }}</h1>
-        <a href="{% url 'img_home' %}" class="btn btn-primary">返回主页</a>
-
+        <a href="{% url 'img_home' %}" class="btn">返回主页</a>
     </div>
 </body>
 </html>

@@ -14,18 +14,19 @@
         <ul class="list-group mt-4">
             {% for result in results %}
                 <li class="list-group-item result-card">
-
                         {% if result.type == 'TextPlace' %}
                             <a href="{% url 'text_place_detail' result.data.id %}" class="result-link">
                             在地文字: {{ result.data.keywords }}
+                            </a>
                         {% elif result.type == 'TextCultural' %}
                             <a href="{% url 'text_cultural_detail' result.data.id %}" class="result-link">
                             物产文字: {{ result.data.keywords }}
+                            </a>
                         {% elif result.type == 'TextHumanistic' %}
                             <a href="{% url 'text_humanistic_detail' result.data.id %}" class="result-link">
                             文化文字: {{ result.data.keywords }}
+                            </a>
                         {% endif %}
-                    </a>
                 </li>
             {% endfor %}
         </ul>

@@ -1,39 +1,37 @@
 {% extends 'videoapp/base.html' %}
-{% load static %}
+
 {% block title %}搜索结果{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">"{{ query }}"的搜索结果</h1>
-    <form method="GET" action="{% url 'search_video' %}">
+<div class="container mt-4">
+    <h1 class="text-center mb-4">"{{ query }}"的搜索结果</h1>
+    <form method="GET" action="{% url 'search_video' %}" class="text-center mb-4">
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">搜索</button>
     </form>
-    
+
     {% if results %}
         <ul class="list-group mt-4">
             {% for result in results %}
-                {% if result.type == 'VideoPlace' %}
-                    <li class="list-group-item">
-                        <a href="{% url 'video_place_detail' result.data.id %}">
+                <li class="list-group-item result-card">
+                        {% if result.type == 'VideoPlace' %}
+                            <a href="{% url 'video_place_detail' result.data.id %}" class="result-link">
                             在地视频: {{ result.data.keywords }}
-                        </a>
-                    </li>
-                {% elif result.type == 'VideoCultural' %}
-                    <li class="list-group-item">
-                        <a href="{% url 'video_cultural_detail' result.data.id %}">
+                            </a>
+                        {% elif result.type == 'VideoCultural' %}
+                            <a href="{% url 'video_cultural_detail' result.data.id %}" class="result-link">
                             物产视频: {{ result.data.keywords }}
-                        </a>
-                    </li>
-                {% elif result.type == 'VideoHumanistic' %}
-                    <li class="list-group-item">
-                        <a href="{% url 'video_humanistic_detail' result.data.id %}">
+                            </a>
+                        {% elif result.type == 'VideoHumanistic' %}
+                            <a href="{% url 'video_humanistic_detail' result.data.id %}" class="result-link">
                             文化视频: {{ result.data.keywords }}
-                        </a>
-                    </li>
-                {% endif %}
+                            </a>
+                        {% endif %}
+                </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p class="mt-4">没有找到搜索结果</p>
+        <p class="text-center mt-4">没有找到搜索结果</p>
     {% endif %}
+</div>
 {% endblock %}

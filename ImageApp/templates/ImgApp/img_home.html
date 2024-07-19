@@ -3,44 +3,38 @@
 {% block title %}图片数据库{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4">欢迎来到图片数据库</h1>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">增加在地图片</h5>
-                    <p class="card-text">录入一条在地图片.</p>
-                    <a href="{% url 'img_place_create' %}" class="btn btn-primary">添加</a>
-                </div>
+    <h1 class="title">欢迎来到图片数据库</h1>
+    <!-- Use Flexbox to align cards in a row -->
+    <div class="wrapper">
+        <div class="card mx-2">
+            <div class="card-body">
+                <h5 class="card-title">增加在地图片</h5>
+                <p class="card-text">录入一条在地图片.</p>
+                <a href="{% url 'img_place_create' %}" class="btn btn-primary">增加在地图片</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">增加物产图片</h5>
-                    <p class="card-text">录入一条物产图片.</p>
-                    <a href="{% url 'img_cultural_create' %}" class="btn btn-primary">添加</a>
-                </div>
+        <div class="card mx-2">
+            <div class="card-body">
+                <h5 class="card-title">增加物产图片</h5>
+                <p class="card-text">录入一条物产图片.</p>
+                <a href="{% url 'img_cultural_create' %}" class="btn btn-primary">增加物产图片</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">增加文化图片</h5>
-                    <p class="card-text">录入一条文化图片.</p>
-                    <a href="{% url 'img_humanistic_create' %}" class="btn btn-primary">添加</a>
-                </div>
+        <div class="card mx-2">
+            <div class="card-body">
+                <h5 class="card-title">增加文化图片</h5>
+                <p class="card-text">录入一条文化图片.</p>
+                <a href="{% url 'img_humanistic_create' %}" class="btn btn-primary">增加文化图片</a>
             </div>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">搜索</h5>
-                    <p class="card-text">搜索所有图片.</p>
-                    <a href="{% url 'search_img' %}" class="btn btn-primary">搜索</a>
-                </div>
+    <!-- Ensure search button is centered and on a new row -->
+    <div class="d-flex justify-content-center">
+        <div class="card mx-2">
+            <div class="card-body text-center">
+                <h5 class="card-title">搜索</h5>
+                <p class="card-text">搜索所有图片.</p>
+                <a href="{% url 'search_img' %}" class="btn btn-primary">搜索</a>
             </div>
         </div>
     </div>
