@@ -1,11 +1,12 @@
 {% extends 'videoapp/base.html' %}
-
+{% load static %}
 {% block title %}物产视频详情{% endblock %}
 
 {% block content %}
     <h1 class="mb-4">物产视频详情</h1>
     <p><strong>关键词:</strong> {{ item.keywords }}</p>
-    <p><strong>信息地址:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
+<!--<p><strong>信息地址:</strong> <a href="{% static 'test_demo_video/' %}总阳村竹竿舞打糍粑/">{{ item.information_address }}</a></p>-->
+<p><strong>信息地址:</strong> <a href="{{ item.information_address }}">{{ item.information_address }}</a></p>
     <p><strong>知识产权归属:</strong> {{ item.copyright_owner }}</p>
     <p><strong>文件名称:</strong> {{ item.dir_name }}</p>
     <p><strong>详细名称:</strong> {{ item.special_name }}</p>

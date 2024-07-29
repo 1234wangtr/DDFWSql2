@@ -11,30 +11,36 @@
     </form>
 
     {% if results %}
-        <ul class="list-group mt-4">
+        <div class="result-container">
             {% for result in results %}
-                <li class="list-group-item result-card">
-                    {% if result.type == 'ImgPlace' %}
-                        <a href="{% url 'img_place_detail' result.data.id %}" class="result-link">
-                            <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
-                            在地图片: {{ result.data.keywords }}
-                        </a>
-                    {% elif result.type == 'ImgCultural' %}
-                        <a href="{% url 'img_cultural_detail' result.data.id %}" class="result-link">
-                            <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
-                            物产图片: {{ result.data.keywords }}
-                        </a>
-                    {% elif result.type == 'ImgHumanistic' %}
-                        <a href="{% url 'img_humanistic_detail' result.data.id %}" class="result-link">
-                            <img src="{% static result.data.information_address %}" alt="加载错误" style="width:100px;height:auto;">
-                            文化图片: {{ result.data.keywords }}
-                        </a>
-                    {% endif %}
-                </li>
+                <div class="result-card">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            {% if result.type == 'ImgPlace' %}
+                                <a href="{% url 'img_place_detail' result.data.id %}" class="result-link">
+                                    <img src="{% static result.data.information_address %}" alt="加载错误" class="img-fluid mb-2" style="width:100px;height:auto;">
+                                    <p class="card-text">在地图片: {{ result.data.keywords }}</p>
+                                </a>
+                            {% elif result.type == 'ImgCultural' %}
+                                <a href="{% url 'img_cultural_detail' result.data.id %}" class="result-link">
+                                    <img src="{% static result.data.information_address %}" alt="加载错误" class="img-fluid mb-2" style="width:100px;height:auto;">
+                                    <p class="card-text">物产图片: {{ result.data.keywords }}</p>
+                                </a>
+                            {% elif result.type == 'ImgHumanistic' %}
+                                <a href="{% url 'img_humanistic_detail' result.data.id %}" class="result-link">
+                                    <img src="{% static result.data.information_address %}" alt="加载错误" class="img-fluid mb-2" style="width:100px;height:auto;">
+                                    <p class="card-text">文化图片: {{ result.data.keywords }}</p>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p class="text-center mt-4">没有找到搜索结果</p>
     {% endif %}
 </div>
+
+
 {% endblock %}

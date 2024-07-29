@@ -1,5 +1,5 @@
 {% extends 'videoapp/base.html' %}
-
+{% load static %}
 {% block title %}搜索结果{% endblock %}
 
 {% block content %}
@@ -11,25 +11,27 @@
     </form>
 
     {% if results %}
-        <ul class="list-group mt-4">
+        <div class="result-container">
             {% for result in results %}
-                <li class="list-group-item result-card">
-                        {% if result.type == 'VideoPlace' %}
-                            <a href="{% url 'video_place_detail' result.data.id %}" class="result-link">
+                <div class="result-card">
+                        <div class="card-body text-center">
+                            {% if result.type == 'VideoPlace' %}
+                        <a href="{% url 'video_place_detail' result.data.id %}" class="result-link">
                             在地视频: {{ result.data.keywords }}
-                            </a>
-                        {% elif result.type == 'VideoCultural' %}
-                            <a href="{% url 'video_cultural_detail' result.data.id %}" class="result-link">
+                        </a>
+                    {% elif result.type == 'VideoCultural' %}
+                        <a href="{% url 'video_cultural_detail' result.data.id %}" class="result-link">
                             物产视频: {{ result.data.keywords }}
-                            </a>
-                        {% elif result.type == 'VideoHumanistic' %}
-                            <a href="{% url 'video_humanistic_detail' result.data.id %}" class="result-link">
+                        </a>
+                    {% elif result.type == 'VideoHumanistic' %}
+                        <a href="{% url 'video_humanistic_detail' result.data.id %}" class="result-link">
                             文化视频: {{ result.data.keywords }}
-                            </a>
-                        {% endif %}
-                </li>
+                        </a>
+                    {% endif %}
+                        </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p class="text-center mt-4">没有找到搜索结果</p>
     {% endif %}

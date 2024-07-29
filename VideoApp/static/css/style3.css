@@ -179,6 +179,11 @@ body {
 
 /* search */
 
+.result-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 .result-card {
     border: 1px solid #e0e0e0;
@@ -188,12 +193,13 @@ body {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     margin-bottom: 10px; /* 间距 */
     padding: 20px; /* 内边距，增加冗余空间 */
-    width: 70%; /* 宽度填满屏幕 */
     box-sizing: border-box; /* 确保内边距和边框包含在宽度内 */
     min-height: 40px; /* 设置最小高度，确保比文字高度大一些 */
     display: flex; /* 使用 flexbox 来垂直居中内容 */
     align-items: center; /* 垂直居中 */
     justify-content: center; /* 横向居中 */
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 
 .result-card:hover {
@@ -217,13 +223,13 @@ body {
     list-style-type: none; /* 去掉前面的圆点 */
 }
 
-
-
 /* 容器样式 */
 .centered-container {
     width: 70%; /* 占中间70%的空间 */
     margin: 0 auto; /* 居中对齐 */
 }
+
+
 
 
 /* 通用按钮样式 */
@@ -245,6 +251,9 @@ body {
 .common-btn:hover {
     background-color: #5a6268;
 }
+
+
+
 
 
 
